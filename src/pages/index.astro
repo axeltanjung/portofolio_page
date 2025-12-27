@@ -1,16 +1,569 @@
 ---
+import Base from "../layouts/BaseLayout.astro";
+
+const systems = [
+  {
+    title:"Ball Mill Grind Size Optimizer",
+    impact:"Production stability & energy efficiency",
+    desc:"Optimizes SAG & Ball Mill grind size using real-time energy and PSD feedback loops.",
+    img:"/projects/ball-mill.png"
+  },
+  {
+    title:"Heavy Equipment Forecasting Engine",
+    impact:"↓ 37% MAPE",
+    desc:"Predicts component failure and maintenance schedules for heavy equipment fleets.",
+    img:"/projects/forecast.png"
+  },
+  {
+    title:"Gen-AI NLS Analyzer",
+    impact:"95% sentiment accuracy",
+    desc:"Natural language mining for operator logs & incident reports.",
+    img:"/projects/genai.png"
+  },
+  {
+    title:"Conveyor Failure Analytics",
+    impact:"Downtime prevention",
+    desc:"Detects early failure signals from vibration and temperature sensors.",
+    img:"/projects/conveyor.png"
+  },
+  {
+    title:"YOLOv8 Safety Helmet Detection",
+    impact:"Computer vision safety",
+    desc:"Real-time helmet detection deployed on CCTV safety loops.",
+    img:"/projects/helmet.png"
+  },
+  {
+    title:"Credit Risk LSTM Engine",
+    impact:"Early warning risk profiling",
+    desc:"Sequence modeling for credit default early warning.",
+    img:"/projects/credit.png"
+  }
+];
 
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Base title="Axel – Industrial Data Scientist">
+<div class="hud-terminal">
+  <div class="terminal-nav">
+    <span class="prompt">$</span>
+
+    <span class="cmd" data-go="#main">main</span>
+    <span class="cmd" data-go="#experience">experience</span>
+    <span class="cmd" data-go="#career">career</span>
+    <span class="cmd" data-go="#stack">stack</span>
+    <span class="cmd" data-go="#credentials">credentials</span>
+    <span class="cmd" data-go="#systems">systems</span>
+  </div>
+</div>
+
+
+<section id="main" class="hero-stage">
+<div class="hero-aww hero-with-photo">
+
+  <div class="hero-photo">
+    <img src="/profile.jpg" alt="Axel Ivanda Tanjung">
+  </div>
+
+  <div class="hero-content">
+
+    <span class="badge">WELCOME TO MY WORLD</span>
+    <h1 class="hero-name-massive sweep">
+      AXEL<br>
+      TANJUNG
+    </h1>
+
+    <p class="hero-subtitle">
+      an Industrial Machine Learning Engineer.
+    </p>
+
+  <p class="hero-desc">
+  I design production-grade machine learning systems that optimize mining,
+  heavy equipment reliability, and industrial operations — deployed directly
+  in real control rooms, not just notebooks.
+</p>
+<p class="hero-footnote">
+  Based in Jakarta · Available for global industrial ML projects
+</p>
+
+    <div class="cta">
+      <a href="#systems" class="btn primary">View Systems →</a>
+      <a href="#career" class="btn ghost">Career ↓</a>
+    </div>
+  
+    
+<div class="social-cta centered">
+  <a href="https://linkedin.com/in/axel-ivanda-tanjung" target="_blank" class="mini-btn">
+    <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v16H0zM7.5 8h4.8v2.2h.1c.7-1.3 2.4-2.6 5-2.6 5.3 0 6.2 3.4 6.2 7.8V24h-5v-7.8c0-1.9 0-4.3-2.7-4.3s-3.1 2-3.1 4.2V24h-5V8z"/></svg>
+  </a>
+
+  <a href="https://github.com/axeltanjung" target="_blank" class="mini-btn">
+    <svg viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2.2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.7-.7 2.1-1.1-.1-.7-.4-1.1-.7-1.4-2.6-.3-5.4-1.3-5.4-5.8 0-1.3.5-2.4 1.2-3.3-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.4 1.2a11.8 11.8 0 0 1 6.2 0c2.4-1.5 3.4-1.2 3.4-1.2.6 1.6.2 2.8.1 3.1.8.9 1.2 2 1.2 3.3 0 4.5-2.8 5.5-5.4 5.8.4.3.8 1 .8 2v3c0 .3.2.7.8.6A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
+  </a>
+
+  <a href="https://medium.com/@axelivandatanjung" target="_blank" class="mini-btn">
+    <svg viewBox="0 0 24 24"><path d="M2 5l5.5 6.6L2 18h5.3l3.8-5 4.1 5H22l-5.8-6.8L21.7 5h-5.2l-3.6 4.7L9.4 5z"/></svg>
+  </a>
+  <a href="https://www.youtube.com/@Axel_IT" target="_blank" class="mini-btn" aria-label="YouTube">
+  <svg viewBox="0 0 24 24">
+    <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.4.6A3 3 0 0 0 .5 6.2 31.7 31.7 0 0 0 0 12a31.7 31.7 0 0 0 .6 5.8 3 3 0 0 0 2.1 2.1c1.8.6 9.3.6 9.3.6s7.6 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.7 31.7 0 0 0 24 12a31.7 31.7 0 0 0-.5-5.8zM9.5 15.5v-7l6 3.5-6 3.5z"/>
+  </svg>
+  </a>
+
+  <a href="https://public.tableau.com/app/profile/axel.ivanda.tanjung/vizzes" target="_blank" class="mini-btn" aria-label="Tableau Public">
+    <svg viewBox="0 0 24 24">
+      <path d="M12 0l2 4h4l-2 4 2 4h-4l-2 4-2-4H6l2-4-2-4h4l2-4zm0 10l2 4h4l-2 4 2 4h-4l-2 4-2-4H6l2-4-2-4h4l2-4z"/>
+    </svg>
+  </a>
+<div class="scanline"></div>
+
+</section>
+
+  </div>
+<div class="scroll-indicator">
+  <span></span>
+</div>
+</section>
+
+<div class="world-break"></div>
+
+<section id="experience" class="world-metrics">
+
+  <div class="metrics-stage">
+
+    <h2 class="metrics-title">SYSTEM AUTHORITY</h2>
+
+    <div class="metrics-grid">
+      <div class="metric-big">
+        <span class="num" data-target="8">0</span>
+        <span class="unit">Years Industry Experience</span>
+      </div>
+
+      <div class="metric-big">
+        <span class="num" data-target="30">0</span>
+        <span class="unit">End-to-End ML Systems</span>
+      </div>
+
+      <div class="metric-big">
+        <span class="num" data-target="12">0</span>
+        <span class="unit">Professional Certifications</span>
+      </div>
+
+      <div class="metric-big">
+        <span class="num" data-target="5">0</span>
+        <span class="unit">Enterprise Deployments</span>
+      </div>
+    </div>
+
+    <div class="metrics-context">
+      <p>Industrial ML systems deployed into real production decision loops.</p>
+      <p>Designed for reliability, cost efficiency, and operator UX.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<div class="divider"></div>
+
+
+<section id="career" class="timeline-pro">
+  <h2 class="center glitch" data-text="Career Progression">Career Progression</h2>
+
+  <div class="spine">
+    <div class="progress"></div>
+    <span class="spine-glow"></span>
+  </div>
+
+  <div class="node left reveal-node">
+  <span class="connector"></span>
+    <span class="year">2017–2020</span>
+    <div class="content">
+      <h4>Site Contract & Risk Officer</h4>
+      <p>Construction operations & risk control (Waskita Karya)</p>
+    </div>
+  </div>
+
+  <div class="node right reveal-node">
+  <span class="connector"></span>
+    <span class="year">2020–2021</span>
+    <div class="content">
+      <h4>Supply Chain Manager</h4>
+      <p>Inventory optimization & procurement leadership</p>
+    </div>
+  </div>
+
+  <div class="node left reveal-node">
+  <span class="connector"></span>
+    <span class="year">2021–2023</span>
+    <div class="content">
+      <h4>IT Ops & Analytics</h4>
+      <p>Digital Control Tower & forecasting ML</p>
+    </div>
+  </div>
+
+  <div class="node right reveal-node">
+  <span class="connector"></span>
+    <span class="year">2023–2024</span>
+    <div class="content">
+      <h4>Cloud Engineer</h4>
+      <p>AWS & Azure system architecture</p>
+    </div>
+  </div>
+
+  <div class="node left reveal-node">
+  <span class="connector"></span>
+    <span class="year">2024–Now</span>
+    <div class="content">
+      <h4>Industrial Data Scientist</h4>
+      <p>Production ML in mining & heavy equipment</p>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<section id="stack" class="world-stack">
+
+  <div class="stack-stage">
+
+    <h2 class="stack-title">PLATFORM STACK</h2>
+
+    <div class="stack-grid-big">
+      <div class="stack-col">
+        <span>Languages</span>
+        <h3>Python · SQL · Golang</h3>
+        <p>Core production programming layer</p>
+      </div>
+
+      <div class="stack-col">
+        <span>ML Layer</span>
+        <h3>LSTM · CV · NLP · Gen-AI · RAG</h3>
+        <p>Decision intelligence & automation</p>
+      </div>
+
+      <div class="stack-col">
+        <span>MLOps</span>
+        <h3>Docker · K8s · Airflow · MLflow</h3>
+        <p>Model lifecycle & deployment orchestration</p>
+      </div>
+
+      <div class="stack-col">
+        <span>Cloud</span>
+        <h3>AWS · Azure · Snowflake · Spark</h3>
+        <p>Scalable data & compute infrastructure</p>
+      </div>
+
+      <div class="stack-col">
+        <span>BI</span>
+        <h3>Power BI · Tableau · SAP HANA</h3>
+        <p>Operator dashboards & reporting</p>
+      </div>
+
+      <div class="stack-col">
+        <span>Monitoring</span>
+        <h3>Grafana · Prometheus · ELK</h3>
+        <p>Drift, performance & health tracking</p>
+      </div>
+    </div>
+
+    <div class="stack-legend">
+      <p>Everything is production-grade, monitored, and deployed in real industrial environments.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<div class="divider"></div>
+
+<section id="credentials" class="credentials">
+  <h2 class="center">Professional Credentials</h2>
+
+  <div class="grid cred-grid">
+    <div class="cred-card motion-card">
+      <h4>Cloud & AI Certifications</h4>
+      <ul>
+        <li>AWS Solutions Architect – Associate</li>
+        <li>Microsoft Azure AI Engineer</li>
+        <li>IBM AI Engineer Professional</li>
+      </ul>
+    </div>
+
+    <div class="cred-card motion-card">
+      <h4>Academic & Awards</h4>
+      <ul>
+        <li>Best Graduate – PACMANN Bootcamp</li>
+        <li>AWS Cloud Innovation Challenge Winner</li>
+        <li>Digital Smart Workshop (DSW) Finalist</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<div class="divider"></div>
+
+<section id="system" class="system">
+  <div class="systems-stage">
+    
+    <h2 class="systems-title">
+      <svg class="gear" viewBox="0 0 24 24">
+    <path d="M12 8.5a3.5 3.5 0 1 0 0 7a3.5 3.5 0 0 0 0-7zm9.4 3.5l-2-.4a7.8 7.8 0 0 0-.7-1.7l1.2-1.7l-1.8-1.8l-1.7 1.2c-.5-.3-1.1-.6-1.7-.7l-.4-2h-2.6l-.4 2c-.6.1-1.2.4-1.7.7L7.9 4.7L6.1 6.5l1.2 1.7c-.3.5-.6 1.1-.7 1.7l-2 .4v2.6l2 .4c.1.6.4 1.2.7 1.7l-1.2 1.7l1.8 1.8l1.7-1.2c.5.3 1.1.6 1.7.7l.4 2h2.6l.4-2c.6-.1 1.2-.4 1.7-.7l1.7 1.2l1.8-1.8l-1.2-1.7c.3-.5.6-1.1.7-1.7l2-.4z"/>
+  </svg>
+  DEPLOYED INDUSTRIAL SYSTEMS</h2>
+
+   <div class="systems-track">
+  {systems.map((s,i)=>(
+    <a href={`/projects/${s.slug}`} class="system-panel spotlight">
+  <span class="sys-index">[{(i+1).toString().padStart(2,"0")}]</span>
+
+  <div class="sys-media">
+    <img src={s.img} alt={s.title} loading="lazy">
+  </div>
+
+  <h3 class="sys-title">{s.title}</h3>
+
+  <p class="sys-desc">
+    {s.desc}
+  </p>
+
+  <span class="sys-impact">
+    {s.impact}
+  </span>
+</a>
+  ))}
+</div>
+
+  </div>
+
+</section>
+
+
+
+<style>
+.hero{max-width:var(--max);margin:auto}
+.badge{font-family:var(--mono);color:var(--accent)}
+.btn{padding:14px 24px;border-radius:14px;text-decoration:none;margin-right:10px}
+.primary{background:var(--accent);color:#020617}
+.ghost{border:1px solid var(--line);color:var(--txt)}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));max-width:var(--max);margin:auto;text-align:center}
+.muted{color:var(--muted)}
+.center{text-align:center}
+.authority{text-align:center;color:var(--muted)}
+</style>
+
+<script>
+document.querySelectorAll('.motion-card').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    card.style.setProperty('--mx',`${e.clientX-r.left}px`);
+    card.style.setProperty('--my',`${e.clientY-r.top}px`);
+  });
+});
+</script>
+<script>
+const animate = (el, target) => {
+  let n = 0;
+  const step = target / 60;
+  const tick = () => {
+    n += step;
+    if (n < target) {
+      el.textContent = Math.round(n);
+      requestAnimationFrame(tick);
+    } else el.textContent = target;
+  };
+  tick();
+};
+
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting && e.target.dataset.done !== "1") {
+      e.target.dataset.done = "1";
+      animate(e.target, parseInt(e.target.dataset.target));
+    }
+  });
+},{threshold:.6});
+
+document.querySelectorAll('.num').forEach(n=>io.observe(n));
+</script>
+
+<script>
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.style.opacity=1;
+      e.target.style.transform="translateY(0)";
+    }
+  });
+},{threshold:.4});
+
+document.querySelectorAll('.node').forEach(el=>observer.observe(el));
+</script>
+
+<script>
+document.querySelectorAll('.motion-timeline').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    card.style.setProperty('--mx',`${e.clientX-r.left}px`);
+    card.style.setProperty('--my',`${e.clientY-r.top}px`);
+  });
+});
+</script>
+<script>
+const timeline = document.querySelector('.timeline-pro');
+const progress  = document.querySelector('.timeline-pro .progress');
+
+window.addEventListener('scroll',()=>{
+  const rect = timeline.getBoundingClientRect();
+  const h = rect.height - window.innerHeight;
+  const scrolled = Math.min(Math.max(-rect.top,0), h);
+  progress.style.height = `${(scrolled / h) * 100}%`;
+});
+</script>
+<script>
+const nodes = document.querySelectorAll('.reveal-node');
+
+window.addEventListener('scroll',()=>{
+  const timeline = document.querySelector('.timeline-pro');
+  const rect = timeline.getBoundingClientRect();
+  const h = rect.height - window.innerHeight;
+  const scrolled = Math.min(Math.max(-rect.top,0), h);
+  const ratio = scrolled / h;
+
+  nodes.forEach(node=>{
+    const nRect = node.getBoundingClientRect();
+    const nodeRatio = (window.innerHeight - nRect.top) / window.innerHeight;
+    if(nodeRatio > 0.5) node.classList.add("active");
+  });
+});
+</script>
+<script>
+document.querySelectorAll('.reveal-node').forEach(node=>{
+  const glow = document.querySelector('.spine-glow');
+  node.addEventListener('mouseenter',()=>{
+    const spine = document.querySelector('.spine');
+    const sRect = spine.getBoundingClientRect();
+    const nRect = node.getBoundingClientRect();
+    const y = nRect.top + nRect.height/2 - sRect.top;
+    glow.style.top = `${y}px`;
+    glow.style.opacity = 1;
+  });
+  node.addEventListener('mouseleave',()=>{
+    document.querySelector('.spine-glow').style.opacity = 0;
+  });
+});
+</script>
+<div class="particles">
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<div class="blueprint-grid"></div>
+
+<svg class="wiring-bg" viewBox="0 0 1200 800" preserveAspectRatio="none">
+
+  <!-- horizontal wires -->
+  <path id="h1" d="M0 120 H1200"/>
+  <path id="h2" d="M0 300 H1200"/>
+  <path id="h3" d="M0 480 H1200"/>
+  <path id="h4" d="M0 660 H1200"/>
+
+  <!-- vertical wires -->
+  <path id="v1" d="M120 0 V800"/>
+  <path id="v2" d="M360 0 V800"/>
+  <path id="v3" d="M600 0 V800"/>
+  <path id="v4" d="M840 0 V800"/>
+  <path id="v5" d="M1080 0 V800"/>
+
+  <!-- glowing packets -->
+  <circle r="4" fill="#38bdf8">
+    <animateMotion dur="6s" repeatCount="indefinite">
+      <mpath href="#h1"/>
+    </animateMotion>
+  </circle>
+
+  <circle r="3" fill="#0ea5e9">
+    <animateMotion dur="8s" repeatCount="indefinite">
+      <mpath href="#v3"/>
+    </animateMotion>
+  </circle>
+
+  <circle r="3" fill="#38bdf8">
+    <animateMotion dur="7s" repeatCount="indefinite">
+      <mpath href="#h3"/>
+    </animateMotion>
+  </circle>
+
+  <circle r="4" fill="#0ea5e9">
+    <animateMotion dur="9s" repeatCount="indefinite">
+      <mpath href="#v2"/>
+    </animateMotion>
+  </circle>
+
+</svg>
+
+<script>
+setInterval(()=>{
+  document.getElementById("liveClock").textContent =
+    new Date().toLocaleTimeString("en-GB",{hour:'2-digit',minute:'2-digit'});
+},1000);
+</script>
+
+<div class="scroll-grid"></div>
+<script>
+document.querySelectorAll('.cmd').forEach(c=>{
+  c.onclick = () =>
+    document.querySelector(c.dataset.go)?.scrollIntoView({behavior:'smooth'});
+});
+</script>
+
+<script>
+const world = document.querySelector(".world-systems");
+const track = document.querySelector(".systems-track");
+
+window.addEventListener("scroll",()=>{
+  const rect = world.getBoundingClientRect();
+  const scroll = Math.min(Math.max(-rect.top,0), rect.height-window.innerHeight);
+  const max = track.scrollWidth - window.innerWidth;
+  const pct = scroll/(rect.height-window.innerHeight);
+  track.style.transform = `translateX(${-max*pct}px)`;
+});
+</script>
+
+<script>
+const sections = [
+  "#main",
+  "#experience",
+  "#career",
+  "#stack",
+  "#credentials",
+  "#systems"
+];
+
+const cmds = document.querySelectorAll(".cmd");
+
+const spy = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      cmds.forEach(c=>c.classList.remove("active"));
+      document.querySelector(`.cmd[data-go="#${e.target.id}"]`)?.classList.add("active");
+    }
+  });
+},{threshold:.6});
+
+sections.forEach(id=>{
+  const el=document.querySelector(id);
+  if(el) spy.observe(el);
+});
+</script>
+<script>
+let idleTimer;
+document.addEventListener("mousemove",()=>{
+  clearTimeout(idleTimer);
+  document.querySelector(".hud-terminal")?.classList.remove("idle");
+  idleTimer=setTimeout(()=>{
+    document.querySelector(".hud-terminal")?.classList.add("idle");
+  },2000);
+});
+</script>
+
+</Base>

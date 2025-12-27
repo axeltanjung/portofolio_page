@@ -1,0 +1,103 @@
+---
+import Base from "../../layouts/BaseLayout.astro";
+---
+
+<Base title="Ball Mill Grind Size Optimizer">
+
+<section class="hero">
+  <h1>Ball Mill Grind Size Optimizer</h1>
+  <p class="sub">
+    Production-grade time series ML system for stabilizing grind size and improving energy efficiency in mining operations.
+  </p>
+</section>
+
+<section class="grid">
+  <div class="card">
+    <h3>Problem</h3>
+    <p>
+      Grinding circuits experienced unstable grind size distribution causing throughput loss, downstream flotation inefficiency,
+      and excessive energy consumption.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Data</h3>
+    <p>
+      High-frequency PI Vision sensor streams: specific energy, tonnage, particle size, water flow, mill load and power draw.
+    </p>
+  </div>
+
+  <section class="architecture">
+    <h2>System Architecture</h2>
+
+    <svg viewBox="0 0 900 420" class="diagram">
+
+      <!-- Data Sources -->
+      <rect x="40" y="160" width="180" height="70" rx="14"/>
+      <text x="130" y="200">PI Vision Sensors</text>
+
+      <!-- ETL -->
+      <rect x="270" y="160" width="180" height="70" rx="14"/>
+      <text x="360" y="200">Snowflake ETL</text>
+
+      <!-- ML -->
+      <rect x="500" y="140" width="220" height="100" rx="18"/>
+      <text x="610" y="185">ML Inference Engine</text>
+
+      <!-- UI -->
+      <rect x="760" y="160" width="120" height="70" rx="14"/>
+      <text x="820" y="200">Operator UI</text>
+
+      <!-- Flow Lines -->
+      <path d="M220 195 H270" />
+      <path d="M450 195 H500" />
+      <path d="M720 195 H760" />
+
+    </svg>
+  </section>
+
+  <div class="card">
+    <h3>Model</h3>
+    <p>
+      Multivariate time-series regression models trained to predict grind size target windows based on real-time specific energy behavior.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Pipeline</h3>
+    <p>
+      Snowflake → Feature Engineering → Model Inference → Bound Enforcement → Operator Dashboard → Alarm & Control Loop
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Deployment</h3>
+    <p>
+      Containerized ML inference services deployed in internal cloud infrastructure with CI/CD and monitoring.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Business Impact</h3>
+    <p>
+      Improved grind stability, reduced downstream reprocessing, and enabled proactive energy optimization.
+    </p>
+  </div>
+</section>
+
+<section class="lessons card">
+  <h3>Engineering Lessons</h3>
+  <ul>
+    <li>Noise-aware bound enforcement prevents oscillatory operator behavior</li>
+    <li>Time-series drift monitoring is critical in mineral variability</li>
+    <li>Operator-facing dashboards drive adoption more than raw model accuracy</li>
+  </ul>
+</section>
+
+<style>
+.hero{max-width:var(--max);margin:auto;text-align:center}
+.sub{color:var(--muted)}
+.lessons ul{padding-left:1.2rem}
+</style>
+
+</Base>

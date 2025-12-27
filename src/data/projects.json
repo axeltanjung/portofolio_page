@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "ball-mill-optimizer",
+    "title": "Ball Mill Grind Size Optimizer",
+    "domain": "Mining ML",
+    "impact": "Production stability & energy efficiency",
+    "tech": ["Time Series", "Regression", "PI Vision"],
+    "icon": "⚙️"
+  },
+  {
+    "slug": "helmet-detection",
+    "title": "YOLOv8 Safety Helmet Detection",
+    "domain": "Computer Vision",
+    "impact": "Safety compliance automation",
+    "tech": ["YOLOv8", "OpenCV", "CV"],
+    "icon": "🦺"
+  },
+  {
+    "slug": "credit-risk-lstm",
+    "title": "Credit Risk Early Warning",
+    "domain": "FinTech ML",
+    "impact": "Early risk profiling",
+    "tech": ["LSTM", "Time Series"],
+    "icon": "📉"
+  }
+]

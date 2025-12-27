@@ -1,0 +1,38 @@
+---
+const { project } = Astro.props;
+---
+
+<a href={`/projects/${project.slug}`} class="project">
+  <span class="icon">{project.icon}</span>
+  <h3>{project.title}</h3>
+  <p class="impact">{project.impact}</p>
+  <div class="tags">
+    {project.tech.map(t => <span>{t}</span>)}
+  </div>
+</a>
+
+<style>
+.project {
+  background:linear-gradient(180deg,#0f172a,#020617);
+  border:1px solid #1e293b;
+  padding:1.6rem;
+  border-radius:20px;
+  text-decoration:none;
+  color:white;
+  transition:.3s;
+}
+.project:hover {
+  transform:translateY(-8px);
+  box-shadow:0 20px 40px #000;
+}
+.tags span {
+  font-family:var(--mono);
+  border:1px solid #1e293b;
+  padding:4px 10px;
+  border-radius:999px;
+  margin-right:6px;
+  font-size:.7rem;
+}
+.icon{font-size:1.6rem}
+.impact{color:var(--muted)}
+</style>

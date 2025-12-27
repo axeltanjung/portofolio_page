@@ -1,0 +1,34 @@
+---
+import Base from "../../layouts/BaseLayout.astro";
+---
+
+<Base title="YOLOv8 Helmet Detection">
+
+<section class="hero">
+  <h1>YOLOv8 Safety Helmet Detection</h1>
+  <p>Real-time PPE compliance monitoring using computer vision.</p>
+</section>
+
+<section class="architecture">
+<svg viewBox="0 0 900 420" class="diagram">
+
+<rect x="40" y="160" width="180" height="70" rx="14"/>
+<text x="130" y="200">CCTV Camera</text>
+
+<rect x="270" y="160" width="180" height="70" rx="14"/>
+<text x="360" y="200">Frame Extractor</text>
+
+<rect x="500" y="140" width="220" height="100" rx="18"/>
+<text x="610" y="185">YOLOv8 Inference</text>
+
+<rect x="760" y="160" width="120" height="70" rx="14"/>
+<text x="820" y="200">Safety Dashboard</text>
+
+<path d="M220 195 H270"/>
+<path d="M450 195 H500"/>
+<path d="M720 195 H760"/>
+
+</svg>
+</section>
+
+</Base>

@@ -1,0 +1,31 @@
+---
+const { profile } = Astro.props;
+---
+
+<section class="hero">
+  <h1>{profile.name}</h1>
+  <h2>{profile.title}</h2>
+  <p>{profile.tagline}</p>
+
+  <div class="cta">
+    <a href="/resume" class="btn primary">Resume</a>
+    <a href={profile.github} class="btn ghost">GitHub</a>
+  </div>
+</section>
+
+<style>
+.hero {
+  max-width: var(--maxw);
+  margin: 6rem auto;
+}
+h1 { font-size: 3rem; letter-spacing:-1px }
+h2 { color: var(--accent) }
+.btn {
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  text-decoration:none;
+  margin-right: 10px;
+}
+.primary { background: var(--accent); color:#020617 }
+.ghost { border:1px solid #334155; color:var(--text) }
+</style>

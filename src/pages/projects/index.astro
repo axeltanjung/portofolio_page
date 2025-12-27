@@ -1,0 +1,15 @@
+---
+import Base from "../../layouts/BaseLayout.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import projects from "../../data/projects.json";
+---
+
+<Base title="Industrial ML Systems">
+
+<h1 style="text-align:center">Industrial ML Systems</h1>
+
+<section class="grid">
+  {projects.map(p => <ProjectCard project={p} />)}
+</section>
+
+</Base>
