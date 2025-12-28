@@ -79,5 +79,28 @@ window.addEventListener("scroll",()=>{
 });
 </script>
 
+<script>
+let idx=0;
+const main = document.querySelector(".broadcast-main img");
+const title = document.querySelector(".broadcast-main h3");
+const vids = [...document.querySelectorAll(".broadcast-card")];
+
+setInterval(()=>{
+  idx = (idx+1)%vids.length;
+  const v = vids[idx];
+  main.src = v.dataset.thumb;
+  title.innerText = v.dataset.title;
+}, 6500);
+</script>
+<script>
+document.querySelectorAll(".broadcast-card,.broadcast-main").forEach(el=>{
+  el.addEventListener("mouseenter",()=>{
+    const a=document.getElementById("consoleClick");
+    a.currentTime=0; a.volume=.25; a.play();
+  });
+});
+</script>
+
+
 </body>
 </html>

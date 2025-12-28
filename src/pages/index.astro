@@ -1,9 +1,18 @@
 ---
+import { getGitHubYear } from "../lib/githubYear";
+const weeks = await getGitHubYear();
+
+import { getYoutubeVideos } from "../lib/youtube";
+const videos = await getYoutubeVideos(6);
+
 import Base from "../layouts/BaseLayout.astro";
 import { getMediumPosts } from "../lib/medium";
 
 const posts = await getMediumPosts();
 const [featured, ...rest] = posts;
+
+const topVideos = posts.slice(0,5);
+const moreVideos = posts.slice(5);
 
 const systems = [
   {
@@ -57,6 +66,7 @@ const systems = [
     <span class="cmd" data-go="#credentials">credentials</span>
     <span class="cmd" data-go="#systems">systems</span>
     <span class="cmd" data-go="#journal">blog</span>
+    <span class="cmd" data-go="#broadcast">broadcast</span>
     <span class="cmd" data-go="#contact">contact</span>
   </div>
 </div>
@@ -380,17 +390,114 @@ const systems = [
       ))}
     </div>
 
-  </div>
+  
 </section>
-
-</section>
-
 
 <section class="journal-hero">
   <span class="tag">FEATURED FIELD NOTE</span>
   <h2>{featured.title}</h2>
   <p>{featured.desc}</p>
   <a href={featured.link} target="_blank" class="btn primary">Read Engineering Note →</a>
+</section>
+
+<section id="broadcast" class="world-broadcast">
+  <div class="broadcast-stage">
+
+    <span class="broadcast-tag">ENGINEERING BROADCAST</span>
+    <h2>Industrial ML Control Room</h2>
+    <p class="broadcast-desc">
+      Live engineering transmissions from field-deployed ML systems.
+    </p>
+  <div class="live-beacon">
+  <span class="pulse"></span>
+  LIVE NOW
+</div>
+
+    <div class="broadcast-grid">
+
+      <a href="https://www.youtube.com/@Axel_IT" target="_blank" class="broadcast-main">
+        <img src={videos[0]?.thumb} />
+        <div class="broadcast-overlay">
+          <span class="live">LIVE FEED</span>
+          <h3>{videos[0]?.title}</h3>
+          <p>Latest system deployment</p>
+        </div>
+      </a>
+
+      <div class="broadcast-cards">
+
+  <audio id="consoleClick" src="/ui-click.mp3" preload="auto"></audio>
+
+  {videos.slice(1,5).map((v,i) => (
+    <a
+      class={`broadcast-card ${i===0 ? "newest" : ""}`}
+      target="_blank"
+      href={`https://youtube.com/watch?v=${v.id}`}
+      data-thumb={v.thumb}
+      data-title={v.title}
+    >
+      <span class="ep">{v.date}</span>
+      <h4>{v.title}</h4>
+    </a>
+  ))}
+
+</div>
+
+          <a href="https://www.youtube.com/@Axel_IT"
+   target="_blank"
+   class="watchmore">
+   Watch Full Channel →
+</a>
+  
+</section>
+<section id="matrix" class="world-matrix">
+  <div class="matrix-stage">
+
+    <div class="matrix-layout">
+
+      <!-- LEFT : EXPLANATION / COMMAND CARD -->
+      <div class="matrix-info">
+        <span class="matrix-tag">365-DAY DEPLOYMENT HISTORY</span>
+        <h2>Live Production Activity Wall</h2>
+
+        <p class="matrix-desc">
+          This wall represents continuous engineering activity across production ML systems,
+          pipelines, research models and operational automation.
+        </p>
+
+        <ul class="matrix-points">
+          <li>• Real commits from deployed ML systems</li>
+          <li>• Includes production pipelines, experiments & monitoring</li>
+          <li>• Reflects long-term consistency — not burst coding</li>
+        </ul>
+
+        <div class="matrix-kpis">
+          <div><strong>365+</strong><span>Active Days</span></div>
+          <div><strong>1000+</strong><span>Commits</span></div>
+          <div><strong>Live</strong><span>Production</span></div>
+        </div>
+      </div>
+
+      <!-- RIGHT : HEATMAP -->
+      <div class="matrix-wall">
+        <div class="year-grid">
+          {weeks.map(week => (
+            <div class="week">
+              {week.contributionDays.map(day => (
+                <div
+                  class={`day lvl-${Math.min(day.contributionCount,4)}`}
+                  title={`${day.date} — ${day.contributionCount} commits`}>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+        <p class="matrix-legend">Live GitHub contribution wall</p>
+      </div>
+
+    </div>
+
+  </div>
 </section>
 
 
