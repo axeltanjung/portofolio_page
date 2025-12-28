@@ -19,5 +19,56 @@ const { title } = Astro.props;
 </div>
 <body class="industrial">
   <slot />
+  <div id="cursor-halo"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", ()=>{
+
+  const form = document.getElementById("contactForm");
+  const overlay = document.getElementById("successOverlay");
+
+  if(!form || !overlay) return;
+
+  form.addEventListener("submit", async e=>{
+    e.preventDefault();
+
+    form.classList.add("submitting");
+
+    try {
+      const res = await fetch("https://formspree.io/f/xgoeyazo", {
+        method:"POST",
+        headers:{ 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+
+      if(res.ok){
+        overlay.style.display = "grid";
+        document.body.style.overflow = "hidden";
+        overlay.focus?.();   // accessibility
+        form.reset();
+      } else throw new Error();
+    } catch {
+      alert("Transmission failed. Try again.");
+    }
+
+    form.classList.remove("submitting");
+  });
+
+});
+
+<script>
+function closeSuccess(){
+  const o = document.getElementById("successOverlay");
+  o.style.opacity = 0;
+  setTimeout(()=>{
+    o.style.display = "none";
+    o.style.opacity = 1;
+    document.body.style.overflow = "auto";
+  },300);
+}
+</script>
+
+</script>
+
 </body>
 </html>

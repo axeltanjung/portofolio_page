@@ -1,5 +1,8 @@
 ---
+import { getMediumPosts } from "../lib/medium";
 import Base from "../layouts/BaseLayout.astro";
+
+const posts = await getMediumPosts();
 
 const systems = [
   {
@@ -47,12 +50,15 @@ const systems = [
   <div class="terminal-nav">
     <span class="prompt">$</span>
 
-    <span class="cmd" data-go="#main">main</span>
-    <span class="cmd" data-go="#experience">experience</span>
+    <span class="cmd" data-go="#main">home</span>
+    <span class="cmd" data-go="#experience">about</span>
     <span class="cmd" data-go="#career">career</span>
     <span class="cmd" data-go="#stack">stack</span>
     <span class="cmd" data-go="#credentials">credentials</span>
     <span class="cmd" data-go="#systems">systems</span>
+    <span class="cmd" data-go="#systems">portfolio</span>
+    <span class="cmd" data-go="#systems">blog</span>
+    <span class="cmd" data-go="#systems">contact</span>
   </div>
 </div>
 
@@ -226,18 +232,18 @@ const systems = [
 
   <div class="stack-stage">
 
-    <h2 class="stack-title">PLATFORM STACK</h2>
+    <h2 class="stack-title">PLATFORM STACK & SKILLS</h2>
 
     <div class="stack-grid-big">
       <div class="stack-col">
         <span>Languages</span>
-        <h3>Python · SQL · Golang</h3>
+        <h3>Python · SQL</h3>
         <p>Core production programming layer</p>
       </div>
 
       <div class="stack-col">
         <span>ML Layer</span>
-        <h3>LSTM · CV · NLP · Gen-AI · RAG</h3>
+        <h3>Traditional ML · Deep Learning · CV · NLP · Gen-AI · RAG</h3>
         <p>Decision intelligence & automation</p>
       </div>
 
@@ -260,8 +266,8 @@ const systems = [
       </div>
 
       <div class="stack-col">
-        <span>Monitoring</span>
-        <h3>Grafana · Prometheus · ELK</h3>
+        <span>Statistical Domain</span>
+        <h3>Sampling · A/B Testing · Econometrics · Time Series Analysis · Bayesian Statisics · Causal Inference </h3>
         <p>Drift, performance & health tracking</p>
       </div>
     </div>
@@ -283,18 +289,26 @@ const systems = [
     <div class="cred-card motion-card">
       <h4>Cloud & AI Certifications</h4>
       <ul>
-        <li>AWS Solutions Architect – Associate</li>
-        <li>Microsoft Azure AI Engineer</li>
-        <li>IBM AI Engineer Professional</li>
+        <li>AWS Certified: Solutions Architect – Associate</li>
+        <li>AWS Certified: Cloud Practitioners</li>
+        <li>Microsoft Certified: Azure AI Engineer Associate</li>
+        <li>Microsoft Certified: Azure Fabrics Analytics Engineer Associate</li>
+        <li>Microsoft Certified: Power BI Data Analyst Associate</li>
+        <li>Microsoft Certified: Azure Data Scientist</li>
+        <li>Microsoft Certified: Azure AI Fundamentals</li>
+        <li>Astronomer Certifications: Apache Airflow DAG Authoring</li>
+        <li>Astronomer Certifications: Apache Airflow Fundamentals</li>
+        <li>Github Foundations: Certifications Program</li>
+        <li>Oracle Cloud Infrastructure: Certified AI Foundations Associate</li>
       </ul>
     </div>
 
     <div class="cred-card motion-card">
       <h4>Academic & Awards</h4>
       <ul>
-        <li>Best Graduate – PACMANN Bootcamp</li>
-        <li>AWS Cloud Innovation Challenge Winner</li>
-        <li>Digital Smart Workshop (DSW) Finalist</li>
+        <li>Best Graduate – PACMANN Bootcamp Batch 9-12 - 2023</li>
+        <li>AWS Cloud Innovation Challenge Winner (Habibie Tech Fest)- 2023</li>
+        <li>Data Science Weekend (DSW) Finalist - 2023</li>
       </ul>
     </div>
   </div>
@@ -338,6 +352,92 @@ const systems = [
 
 </section>
 
+<section class="world-blog">
+  <div class="blog-stage">
+
+    <span class="blog-tag">INDUSTRIAL JOURNAL</span>
+    <h2>Field Notes & Engineering Research</h2>
+
+    <div class="blog-grid">
+      {posts.map(p=>(
+        <a href={p.link} target="_blank" class="blog-card motion-card">
+          <span class="blog-date">{p.date}</span>
+          <h3>{p.title}</h3>
+          <p>{p.desc}</p>
+        </a>
+      ))}
+    </div>
+    <!-- 👇 TARUH DI SINI -->
+    {posts.length === 0 && (
+      <p style="opacity:.4;margin-top:2rem">
+        No articles loaded (Medium blocked or offline)
+      </p>
+    )}
+  </div>
+</section>
+
+<section id="contact" class="world-contact">
+
+  <div class="contact-stage">
+
+    <div class="contact-left">
+      <span class="contact-tag">CONTACT</span>
+      <h2>Request Access</h2>
+      <p class="contact-desc">
+        Let’s discuss how production-grade ML systems can optimize your operation.
+      </p>
+
+      <div class="contact-info">
+        <div class="info-row">
+          <span class="icon">📍</span>
+          <div>
+            <b>Location</b>
+            <p>Jakarta, Indonesia</p>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <span class="icon">✉️</span>
+          <div>
+            <b>Email</b>
+            <p>axel.tanjung@gmail.com</p>
+          </div>
+        </div>
+
+        <div class="info-row">
+          <span class="icon">📞</span>
+          <div>
+            <b>Phone</b>
+            <p>+62 81316904795</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form id="contactForm" class="contact-form">
+      <div class="field-grid">
+        <input name="name" placeholder="Your Name" required>
+        <input name="email" type="email" placeholder="Your Email" required>
+        <input name="phone" placeholder="Phone">
+        <input name="subject" placeholder="Subject">
+      </div>
+
+      <textarea name="message" placeholder="Describe your system, problem or project…" required></textarea>
+
+      <button class="btn primary submit-btn">Request Access →</button>
+    </form>
+
+  </div>
+
+</section>
+
+<div id="successOverlay" class="success-overlay">
+  <div class="success-box">
+    <h2>ACCESS REQUEST SENT</h2>
+    <p>Your message has been transmitted successfully.</p>
+    <button id="closeSuccessBtn" type="button">Close</button>
+  </div>
+</div>
 
 
 <style>
@@ -564,6 +664,25 @@ document.addEventListener("mousemove",()=>{
     document.querySelector(".hud-terminal")?.classList.add("idle");
   },2000);
 });
+</script>
+<script>
+const halo = document.getElementById("cursor-halo");
+let tx=window.innerWidth/2, ty=window.innerHeight/2;
+let cx=tx, cy=ty;
+
+window.addEventListener("mousemove", e=>{
+  tx = e.clientX;
+  ty = e.clientY;
+});
+
+function animate(){
+  cx += (tx - cx) * 0.08;
+  cy += (ty - cy) * 0.08;
+  halo.style.left = cx+"px";
+  halo.style.top  = cy+"px";
+  requestAnimationFrame(animate);
+}
+animate();
 </script>
 
 </Base>
