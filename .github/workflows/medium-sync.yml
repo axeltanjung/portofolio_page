@@ -1,0 +1,27 @@
+name: Sync Medium Journal
+
+on:
+  schedule:
+    - cron: "0 2 * * *"   # daily 02:00 UTC
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm install fast-xml-parser node-fetch
+
+      - run: node scripts/cacheMedium.js
+
+      - run: |
+          git config user.name "journal-bot"
+          git config user.email "bot@github.com"
+          git add src/data/medium.json
+          git commit -m "chore: refresh medium journal" || exit 0
+          git push

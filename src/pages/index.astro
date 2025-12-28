@@ -1,8 +1,9 @@
 ---
-import { getMediumPosts } from "../lib/medium";
 import Base from "../layouts/BaseLayout.astro";
+import { getMediumPosts } from "../lib/medium";
 
 const posts = await getMediumPosts();
+const [featured, ...rest] = posts;
 
 const systems = [
   {
@@ -49,16 +50,14 @@ const systems = [
 <div class="hud-terminal">
   <div class="terminal-nav">
     <span class="prompt">$</span>
-
     <span class="cmd" data-go="#main">home</span>
     <span class="cmd" data-go="#experience">about</span>
     <span class="cmd" data-go="#career">career</span>
     <span class="cmd" data-go="#stack">stack</span>
     <span class="cmd" data-go="#credentials">credentials</span>
     <span class="cmd" data-go="#systems">systems</span>
-    <span class="cmd" data-go="#systems">portfolio</span>
-    <span class="cmd" data-go="#systems">blog</span>
-    <span class="cmd" data-go="#systems">contact</span>
+    <span class="cmd" data-go="#journal">blog</span>
+    <span class="cmd" data-go="#contact">contact</span>
   </div>
 </div>
 
@@ -317,7 +316,7 @@ const systems = [
 
 <div class="divider"></div>
 
-<section id="system" class="system">
+<section id="systems" class="system">
   <div class="systems-stage">
     
     <h2 class="systems-title">
@@ -352,29 +351,48 @@ const systems = [
 
 </section>
 
-<section class="world-blog">
-  <div class="blog-stage">
+<section id="journal" class="world-journal">
+  <div class="journal-stage">
 
-    <span class="blog-tag">INDUSTRIAL JOURNAL</span>
+    <span class="journal-tag">INDUSTRIAL JOURNAL</span>
     <h2>Field Notes & Engineering Research</h2>
 
-    <div class="blog-grid">
-      {posts.map(p=>(
-        <a href={p.link} target="_blank" class="blog-card motion-card">
-          <span class="blog-date">{p.date}</span>
+    <div class="journal-grid">
+      {posts.map(p => (
+        <a href={p.link} class="journal-card">
+          
+          <div class="journal-meta">
+            <span class="date">{p.date}</span>
+
+            <div class="tags">
+              {p.tags?.map(t => <span class="tag">{t}</span>)}
+            </div>
+          </div>
+
           <h3>{p.title}</h3>
-          <p>{p.desc}</p>
+
+          <p class="journal-desc">{p.desc}</p>
+
+          <div class="read-progress">
+            <span></span>
+          </div>
         </a>
       ))}
     </div>
-    <!-- 👇 TARUH DI SINI -->
-    {posts.length === 0 && (
-      <p style="opacity:.4;margin-top:2rem">
-        No articles loaded (Medium blocked or offline)
-      </p>
-    )}
+
   </div>
 </section>
+
+</section>
+
+
+<section class="journal-hero">
+  <span class="tag">FEATURED FIELD NOTE</span>
+  <h2>{featured.title}</h2>
+  <p>{featured.desc}</p>
+  <a href={featured.link} target="_blank" class="btn primary">Read Engineering Note →</a>
+</section>
+
 
 <section id="contact" class="world-contact">
 

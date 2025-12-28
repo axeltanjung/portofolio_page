@@ -1184,3 +1184,76 @@ body.industrial::after {
 .blog-footer {
   margin-top:3rem;
 }
+.journal-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:2.6rem;
+}
+.journal-card {
+  background:linear-gradient(160deg,#0f172a,#020617);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:2rem;
+}
+.journal-card .date {
+  font-family:var(--mono);
+  color:#38bdf8;
+  letter-spacing:.3rem;
+  font-size:.65rem;
+}
+.journal-grid a {
+  text-decoration:none;
+  color:inherit;
+}
+
+.journal-card{
+  background:linear-gradient(160deg,#0f172a,#020617);
+  border:1px solid #1e293b;
+  border-radius:26px;
+  padding:2.6rem 3rem;
+  transition:.5s cubic-bezier(.2,.8,.2,1);
+  position:relative;
+}
+.journal-card .date{
+  font-family:var(--mono);
+  letter-spacing:.25rem;
+  font-size:.65rem;
+  color:var(--text-dim);
+  margin-bottom:.8rem;
+}
+.journal-card h3{
+  color:var(--text-main);
+  font-size:1.35rem;
+  line-height:1.45;
+  font-weight:600;
+  transition:.3s;
+}
+.journal-card h3{
+  background:
+    linear-gradient(var(--accent-neon),var(--accent-neon)) 0 100%/0 2px no-repeat;
+}
+.journal-card:hover h3{
+  background-size:100% 2px;
+}
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:.6rem 0 1rem;
+}
+
+.tag{
+  font-family:var(--mono);
+  font-size:.55rem;
+  letter-spacing:.3rem;
+  padding:6px 12px;
+  border-radius:999px;
+  background:rgba(56,189,248,.08);
+  border:1px solid rgba(56,189,248,.35);
+  color:#7dd3fc;
+  text-transform:uppercase;
+}
+.journal-card:hover .tag{
+  background:rgba(56,189,248,.18);
+  box-shadow:0 0 12px rgba(56,189,248,.3);
+}
